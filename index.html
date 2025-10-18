@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mindful Counseling - Professional Online Therapy Services</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #2c5aa0;
+        --secondary-color: #4a90e2;
+        --accent-color: #7bb3f0;
+        --text-dark: #2c3e50;
+        --text-light: #6c757d;
+        --bg-light: #f8f9fa;
+        --bg-white: #ffffff;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+      }
+
+      .navbar {
+        background: var(--bg-white) !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--primary-color) !important;
+      }
+
+      .nav-link {
+        color: var(--text-dark) !important;
+        font-weight: 500;
+        margin: 0 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color) !important;
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: var(--text-dark);
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%232c5aa0" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        opacity: 0.5;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        line-height: 1.1;
+        color: var(--text-dark);
+      }
+
+      .hero h1 .highlight {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .hero .lead {
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+        color: var(--text-light);
+        font-weight: 300;
+        line-height: 1.6;
+      }
+
+      .hero-image {
+        position: relative;
+        z-index: 2;
+      }
+
+      .counselor-image {
+        width: 100%;
+        max-width: 400px;
+        height: 500px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 60px rgba(44, 90, 160, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .counselor-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="white" opacity="0.1"/><circle cx="100" cy="100" r="60" fill="white" opacity="0.2"/><circle cx="100" cy="100" r="40" fill="white" opacity="0.3"/></svg>');
+        opacity: 0.3;
+      }
+
+      .counselor-image i {
+        font-size: 8rem;
+        color: white;
+        opacity: 0.8;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .btn-hero-primary {
+        background: var(--primary-color);
+        border: none;
+        padding: 15px 35px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .btn-hero-primary:hover {
+        background: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(44, 90, 160, 0.3);
+        color: white;
+      }
+
+      .btn-hero-secondary {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        padding: 13px 35px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        color: var(--primary-color);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .btn-hero-secondary:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(44, 90, 160, 0.2);
+      }
+
+      .btn-primary {
+        background: var(--primary-color);
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .services {
+        background: var(--bg-light);
+        padding: 80px 0;
+      }
+
+      .service-card {
+        background: var(--bg-white);
+        border: none;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-icon i {
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .testimonials {
+        background: var(--bg-white);
+        padding: 80px 0;
+      }
+
+      .testimonial-card {
+        background: var(--bg-light);
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 1rem 0;
+        border-left: 4px solid var(--primary-color);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+      }
+
+      .testimonial-author {
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .about {
+        background: var(--bg-light);
+        padding: 80px 0;
+      }
+
+      .about-content {
+        background: var(--bg-white);
+        border-radius: 15px;
+        padding: 3rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .booking {
+        background: var(--bg-white);
+        padding: 80px 0;
+      }
+
+      .calendly-container {
+        background: var(--bg-light);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact {
+        background: var(--bg-light);
+        padding: 80px 0;
+      }
+
+      .contact-info {
+        background: var(--bg-white);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .contact-item i {
+        color: var(--primary-color);
+        margin-right: 1rem;
+        font-size: 1.2rem;
+      }
+
+      footer {
+        background: var(--text-dark);
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .stats {
+        background: var(--primary-color);
+        color: white;
+        padding: 60px 0;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .floating-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        opacity: 0.1;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-circle:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        right: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-circle:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        top: 60%;
+        left: 5%;
+        animation-delay: 2s;
+      }
+
+      .floating-circle:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        top: 40%;
+        right: 20%;
+        animation-delay: 4s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      .trust-badges {
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .trust-badge i {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .hero-stats {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .hero-stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        display: block;
+      }
+
+      .hero-stat-label {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero .lead {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .btn-hero-primary,
+        .btn-hero-secondary {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .counselor-image {
+          height: 350px;
+          margin-top: 2rem;
+        }
+
+        .trust-badges {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+
+        .hero-stats {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#home">
+          <i class="fas fa-heart"></i> Mindful Counseling
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#booking">Book Session</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+      </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content">
+            <h1>
+              Find Your <span class="highlight">Inner Peace</span><br />
+              Through Professional Counseling
+            </h1>
+            <p class="lead">
+              Licensed therapist providing compassionate, evidence-based mental
+              health support. Take the first step towards healing and personal
+              growth with confidential online sessions.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn-hero-primary" href="#booking">
+                <i class="fas fa-calendar-alt"></i>Book Free Consultation
+              </a>
+              <a class="btn-hero-secondary" href="#about">
+                <i class="fas fa-play"></i>Learn About My Approach
+              </a>
+            </div>
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>HIPAA Compliant</span>
+              </div>
+              <div class="trust-badge">
+                <i class="fas fa-user-md"></i>
+                <span>Licensed Professional</span>
+              </div>
+              <div class="trust-badge">
+                <i class="fas fa-video"></i>
+                <span>Secure Online Sessions</span>
+              </div>
+            </div>
+            <div class="hero-stats">
+              <div class="hero-stat">
+                <span class="hero-stat-number">500+</span>
+                <span class="hero-stat-label">Clients Helped</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">5+</span>
+                <span class="hero-stat-label">Years Experience</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">95%</span>
+                <span class="hero-stat-label">Success Rate</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="hero-image">
+              <div class="counselor-image">
+                <i class="fas fa-user-circle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Clients Helped</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <span class="stat-number">95%</span>
+              <span class="stat-label">Success Rate</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Online Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Your Counselor</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="about-content">
+              <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4">
+                  <div class="counselor-photo">
+                    <i
+                      class="fas fa-user-circle"
+                      style="font-size: 8rem; color: var(--primary-color)"
+                    ></i>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <h3>Licensed Professional Counselor</h3>
+                  <p class="lead">
+                    With over 5 years of experience in mental health counseling,
+                    I specialize in helping individuals, couples, and families
+                    navigate life's challenges through evidence-based
+                    therapeutic approaches.
+                  </p>
+                  <ul class="list-unstyled">
+                    <li>
+                      <i class="fas fa-check-circle text-success me-2"></i
+                      >Licensed Professional Counselor (LPC)
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle text-success me-2"></i
+                      >Certified in Cognitive Behavioral Therapy (CBT)
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle text-success me-2"></i
+                      >Specialized in Anxiety & Depression Treatment
+                    </li>
+                    <li>
+                      <i class="fas fa-check-circle text-success me-2"></i
+                      >Couples & Family Therapy Certified
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <h2 class="section-title">Our Counseling Services</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <h4>Individual Therapy</h4>
+              <p>
+                One-on-one sessions tailored to your unique needs. We'll work
+                together to address anxiety, depression, trauma, and other
+                mental health concerns.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-clock me-2"></i>50-60 minute sessions</li>
+                <li><i class="fas fa-video me-2"></i>Secure video calls</li>
+                <li>
+                  <i class="fas fa-shield-alt me-2"></i>Confidential & safe
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h4>Couples Counseling</h4>
+              <p>
+                Strengthen your relationship through guided therapy sessions.
+                We'll help you communicate better, resolve conflicts, and build
+                a stronger bond.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-clock me-2"></i>60-75 minute sessions</li>
+                <li><i class="fas fa-users me-2"></i>Both partners included</li>
+                <li>
+                  <i class="fas fa-handshake me-2"></i>Conflict resolution
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <h4>Family Therapy</h4>
+              <p>
+                Heal family dynamics and improve communication. We'll work with
+                your entire family to create healthier relationships and resolve
+                conflicts.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-clock me-2"></i>75-90 minute sessions</li>
+                <li><i class="fas fa-family me-2"></i>All family members</li>
+                <li>
+                  <i class="fas fa-comments me-2"></i>Better communication
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <h4>Anxiety & Depression</h4>
+              <p>
+                Specialized treatment for anxiety disorders and depression using
+                evidence-based techniques like CBT and mindfulness practices.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-leaf me-2"></i>Mindfulness techniques</li>
+                <li><i class="fas fa-lightbulb me-2"></i>CBT approach</li>
+                <li><i class="fas fa-chart-line me-2"></i>Progress tracking</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>Life Coaching</h4>
+              <p>
+                Navigate life transitions, career changes, and personal growth
+                with professional guidance and support.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-target me-2"></i>Goal setting</li>
+                <li><i class="fas fa-rocket me-2"></i>Personal growth</li>
+                <li><i class="fas fa-compass me-2"></i>Life direction</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h4>Group Therapy</h4>
+              <p>
+                Join supportive group sessions with others facing similar
+                challenges. Share experiences and learn from each other in a
+                safe environment.
+              </p>
+              <ul class="list-unstyled">
+                <li><i class="fas fa-clock me-2"></i>90 minute sessions</li>
+                <li>
+                  <i class="fas fa-hand-holding-heart me-2"></i>Peer support
+                </li>
+                <li><i class="fas fa-calendar me-2"></i>Weekly meetings</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "Working with my counselor has been life-changing. The online
+                sessions are just as effective as in-person therapy, and I feel
+                completely comfortable opening up in my own space."
+              </p>
+              <p class="testimonial-author">- Sarah M.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "The couples counseling sessions helped us rebuild our
+                relationship. We learned communication skills that we still use
+                every day. Highly recommend!"
+              </p>
+              <p class="testimonial-author">- Michael & Jennifer</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "I was skeptical about online therapy, but it's been amazing.
+                The convenience of scheduling and the quality of care exceeded
+                my expectations."
+              </p>
+              <p class="testimonial-author">- David L.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="testimonial-card">
+              <p class="testimonial-text">
+                "The family therapy sessions brought us closer together. We
+                finally learned how to communicate without fighting. Thank you
+                for helping our family heal."
+              </p>
+              <p class="testimonial-author">- The Johnson Family</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+      <div class="container">
+        <h2 class="section-title">Book Your Session</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="calendly-container">
+              <div class="text-center mb-4">
+                <h4>Schedule Your Free Consultation</h4>
+                <p class="text-muted">
+                  Choose a time that works for you. All sessions are conducted
+                  via secure video calls.
+                </p>
+              </div>
+              <!-- Replace this data-url with your actual Calendly event URL -->
+              <div
+                class="calendly-inline-widget"
+                data-url="https://calendly.com/your-username/your-event"
+                style="min-width: 320px; height: 700px"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="contact-info">
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Contact Information</h4>
+                  <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>counselor@mindfulcounseling.com</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(555) 123-4567</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-video"></i>
+                    <span>Secure Video Sessions</span>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 9AM-8PM, Sat: 10AM-4PM</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h4>Send a Message</h4>
+                  <form>
+                    <div class="mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Your Name"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Your Email"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Subject"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <textarea
+                        class="form-control"
+                        rows="4"
+                        placeholder="Your Message"
+                        required
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-paper-plane me-2"></i>Send Message
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h5><i class="fas fa-heart me-2"></i>Mindful Counseling</h5>
+            <p>
+              Professional online counseling services to help you achieve mental
+              wellness and personal growth.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p>&copy; 2025 Mindful Counseling. All rights reserved.</p>
+            <p class="small">
+              Licensed Professional Counselor | HIPAA Compliant
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add navbar background on scroll
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.style.background = "rgba(255, 255, 255, 0.95)";
+          navbar.style.backdropFilter = "blur(10px)";
+        } else {
+          navbar.style.background = "var(--bg-white)";
+          navbar.style.backdropFilter = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
