@@ -271,6 +271,9 @@
         align-items: center;
         gap: 10px;
         animation: fadeInUp 1s ease-out 0.8s both;
+        /* Add these for consistent size on desktop and mobile */
+        min-width: 220px; /* Set a minimum width for consistent sizing */
+        justify-content: center; /* Center content */
       }
 
       .btn-primary-custom {
@@ -760,6 +763,16 @@
           width: 200px;
           height: 200px;
           margin-bottom: 2rem;
+        }
+        
+        .hero-content .d-flex {
+          justify-content: center !important; /* Center the flex items */
+        }
+        
+        .btn-hero {
+          flex-grow: 1; /* Allow buttons to grow and take equal space */
+          max-width: 90%; /* Limit max width for smaller devices */
+          margin: 5px auto; /* Add vertical margin and auto horizontal margin for centering when stacked */
         }
 
         .decorative-element {
