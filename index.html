@@ -25,6 +25,7 @@
         --light: #f9f7f4;
         --sage: #a4b494;
         --terracotta: #c08876;
+        --soft-beige: #f0eee8; /* New Variable for soft background */
       }
 
       * {
@@ -326,8 +327,23 @@
       }
 
       /* About Section */
+      /* About Section */
       .about {
         background: linear-gradient(180deg, var(--light) 0%, #ffffff 100%);
+        background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+        position: relative;
+      }
+
+      .about::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+        opacity: 0.15;
+        pointer-events: none;
       }
 
       .about-card {
@@ -416,6 +432,12 @@
         position: relative;
         overflow: hidden;
       }
+            /* Hide service CTA buttons (quick) */
+      .service-cta { display: none !important; }
+
+      /* Give a little bottom spacing where the CTA used to be */
+      .service-details { margin-bottom: 6px; }
+
 
       .services::before {
         content: "";
@@ -463,6 +485,7 @@
             rgba(212, 196, 176, 0.03) 47%,
             transparent 48%
           );
+
         background-size: 100px 100px;
         z-index: 1;
       }
@@ -487,7 +510,10 @@
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
       }
 
-      .service-icon {
+      
+      
+
+     .service-icon {
         width: 80px;
         height: 80px;
         background: linear-gradient(135deg, var(--secondary), var(--accent));
@@ -497,6 +523,7 @@
         justify-content: center;
         margin-bottom: 1.5rem;
         transition: transform 0.3s ease;
+        overflow: hidden;
       }
 
       .service-card:hover .service-icon {
@@ -506,6 +533,13 @@
       .service-icon i {
         font-size: 2rem;
         color: white;
+      }
+
+      .service-icon img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
       }
 
       .service-card h4 {
@@ -525,6 +559,433 @@
         color: #6b5a4a;
       }
 
+      /* ---------- Services Section Background & Layout ---------- */
+
+     #services {
+      position: relative;
+      background: linear-gradient(180deg, #ffffff 0%, #f0f2f2 100%);
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+
+
+
+
+      /* add a gentle abstract overlay texture */
+      #services::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("https://www.transparenttextures.com/patterns/white-wall-3.png");
+        opacity: 0.12;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        z-index: 0;
+      }
+      .service-feature {
+        display: flex;
+        align-items: center; /* keeps the icon and text perfectly aligned */
+        gap: 10px; /* spacing between icon and text */
+        margin-bottom: 10px;
+      }
+
+      .service-feature i {
+        color: #ff6b6b;
+        font-size: 10px;
+        line-height: 1;
+        display: inline-block;
+        transform: translateY(1px); /* fine-tunes vertical alignment */
+      }
+
+      /* subtle highlight glow at top to create depth */
+      #services::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+        z-index: 0;
+      }
+
+      /* container layering fix so content sits above overlays */
+      #services > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* section heading */
+      #services h2.section-title {
+        text-align: center;
+        font-size: 2.6rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        color: #3c3429;
+        margin-bottom: 70px;
+      }
+
+      /* each service band styling */
+      .service-band {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 80px auto;
+        gap: 50px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.74);
+        box-shadow: 0 18px 48px rgba(0,0,0,0.04);
+        padding: 60px;
+        backdrop-filter: blur(12px);
+        transition: transform .4s ease, box-shadow .4s ease;
+      }
+
+      /* alternate background shading every other band */
+      .service-band:nth-child(even) {
+        background: rgba(255,255,255,0.85);
+      }
+
+      /* subtle hover lift */
+      .service-band:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 28px 58px rgba(0,0,0,0.06);
+      }
+
+      /* responsive stacking for mobile */
+      @media (max-width: 900px) {
+        .service-band {
+          flex-direction: column;
+          text-align: center;
+          padding: 40px 28px;
+          gap: 32px;
+        }
+        .service-band.reverse {
+          flex-direction: column;
+        }
+      }
+
+      /* image side */
+      .service-media {
+        flex: 1;
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        transition: transform .4s ease;
+      }
+
+      .service-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.02);
+        transition: transform .5s ease;
+      }
+
+      .service-band:hover .service-media img {
+        transform: scale(1.06);
+      }
+
+      /* text side */
+      .service-details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .service-lead {
+        color: #5a5248;
+        font-size: 1.05rem;
+        margin: 14px 0 20px;
+        line-height: 1.6;
+      }
+
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .service-list li {
+        position: relative;
+        padding-right: 28px; /* increased a bit for breathing room */
+        color: #4f453b;
+        margin: 0px 5px;
+        font-size: 0.97rem;
+        line-height: 1.55;
+      }
+
+      .service-list li::before {
+        content: "•";
+        color: var(--primary, #c7a46b);
+        position: absolute;
+        left: 0;
+        top: 1px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1;
+        width: 20px;
+        text-align: center;
+      }
+
+      /* Appear animation */
+      .service-band {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      .service-band.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.7s ease-out;
+      }
+
+
+
+
+      /* ---------- Service icon badges (integrated with horizontal bands) ---------- */
+
+      .service-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 6px;
+      }
+
+      /* circular badge */
+      .service-badge {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+        border-radius: 14px;
+        display: inline-grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(196,165,123,0.14), rgba(232,220,196,0.06));
+        box-shadow: 0 8px 26px rgba(139,111,71,0.08);
+        border: 1px solid rgba(196,165,123,0.08);
+        transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+      }
+
+      /* icon inside badge */
+      .service-badge i {
+        font-size: 1.25rem;
+        color: var(--primary);
+        display: inline-block;
+        transform: translateY(1px);
+      }
+
+      /* slightly larger badge for emphasis on larger screens */
+      @media (min-width: 1200px) {
+        .service-badge { width: 64px; height: 64px; min-width: 64px; border-radius: 16px; }
+        .service-badge i { font-size: 1.35rem; }
+      }
+
+      /* hover interaction — subtle lift */
+      .service-band:hover .service-badge {
+        transform: translateY(-6px) rotate(-1deg) scale(1.03);
+        box-shadow: 0 18px 44px rgba(139,111,71,0.14);
+      }
+
+      /* title alignment */
+      .service-head h3 {
+        font-size: 1.9rem;
+        line-height: 1.05;
+        margin: 0;
+        color: var(--dark);
+      }
+
+      /* tighter spacing on small screens */
+      @media (max-width: 600px) {
+        .service-head { gap: 10px; }
+        .service-badge { width: 48px; height: 48px; min-width: 48px; }
+        .service-head h3 { font-size: 1.45rem; }
+      }
+
+
+      /* ===================== Services - horizontal bands (image + text) ===================== */
+      .services {
+        
+        background: linear-gradient(
+          135deg,
+          rgba(139, 125, 107, 0.06) 0%,
+          rgba(212, 196, 176, 0.08) 30%,
+          rgba(245, 245, 245, 0.95) 100%
+        );
+        
+        padding: 80px 0;
+        position: relative;
+      }
+
+      /* container spacing */
+      .services .container { position: relative; z-index: 2; }
+
+      /* single horizontal band */
+      .service-band {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+        align-items: center;
+        margin: 36px 0;
+        background: transparent;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      /* reverse order for alternating rows */
+      .service-band.reverse { direction: ltr; }
+      .service-band.reverse .service-media { order: -1; }
+
+      /* content column */
+      .service-details {
+        padding: 28px 10px;
+        max-width: 640px;
+      }
+
+      .service-details h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+        color: var(--dark);
+      }
+
+      .service-lead {
+        font-size: 1.03rem;
+        line-height: 1.6;
+        color: #584a3b;
+        margin-bottom: 14px;
+      }
+      /* feature pills */
+      .service-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 18px;
+        display: flex;
+        gap: 10px 12px;
+        flex-wrap: wrap;
+      }
+
+      .service-list li {
+        font-size: 1rem;
+        color: #6f5f4f;
+        background: rgba(162, 142, 112, 0.12); /* slightly stronger background for better visibility */
+        border-radius: 14px; /* softer pill shape */
+        position: relative;
+        padding: 10px 18px 10px 32px; /* more height and width inside */
+        margin: 6px 0;
+        line-height: 1.4;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* subtle elevation */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .service-list li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* light hover lift */
+      }
+
+      .service-list li::before {
+        content: "•";
+        color: var(--primary, #c7a46b);
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+
+      /* CTA styling */
+      .service-cta {
+        display: inline-block;
+        margin-top: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(139,111,71,0.18);
+        transition: transform .28s ease, box-shadow .28s ease;
+      }
+      .service-cta:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(139,111,71,0.24); }
+
+      /* media column */
+      .service-media {
+        height: 320px;
+        position: relative;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* image with fancy stylings */
+      .service-media img {
+        width: 100%;
+        height: 100%;
+        max-width: 760px;
+        object-fit: cover;
+        border-radius: 22px 6px 22px 6px; /* unique rounded edges for "fancy" look */
+        box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+        transform-origin: center center;
+        transition: transform 0.9s cubic-bezier(.2,.9,.2,1), filter 0.6s, box-shadow 0.4s;
+        will-change: transform;
+        position: relative;
+        z-index: 1;
+        display: block;
+      }
+
+      /* image overlay gradient for text contrast when stacked on mobile */
+      .service-media::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 22px 6px 22px 6px;
+        background: linear-gradient(180deg, rgba(0,0,0,0.0) 10%, rgba(0,0,0,0.06) 50%, rgba(0,0,0,0.12) 100%);
+        pointer-events: none;
+        z-index: 2;
+        transition: opacity .4s;
+      }
+
+      /* hover/active image animation */
+      .service-band:hover .service-media img { transform: scale(1.06) translateY(-6px); filter: saturate(1.03) contrast(1.02); box-shadow: 0 40px 100px rgba(0,0,0,0.14); }
+      .service-band:hover .service-media::after { opacity: 1; }
+
+      /* subtle decorative border line between text & image on wide screens */
+      .service-band::before {
+        content: "";
+        position: absolute;
+        left: 6%;
+        right: 6%;
+        top: 0;
+        bottom: 0;
+        border-radius: 20px;
+        pointer-events: none;
+        /* faint inner glow to match site */
+        box-shadow: inset 0 0 0 1px rgba(196,165,123,0.02);
+      }
+
+      /* reveal animation classes */
+      .service-band { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.9,.2,1); }
+      .service-band.visible { opacity: 1; transform: translateY(0); }
+
+      /* Responsive: stack on small screens, image above text */
+      @media (max-width: 992px) {
+        .service-band { grid-template-columns: 1fr; gap: 18px; padding: 14px; }
+        .service-media { height: 260px; }
+        .service-band.reverse .service-media { order: 0; }
+        .service-media img { border-radius: 16px; }
+        .service-details { padding: 10px 6px; }
+      }
+
+      /* Mobile small */
+      @media (max-width: 600px) {
+        .service-media { height: 200px; }
+        .service-details h3 { font-size: 1.45rem; }
+        .service-lead { font-size: 0.98rem; }
+      }
+
+      /* Testimonials */
       /* Testimonials */
       .testimonials {
         background: linear-gradient(
@@ -532,6 +993,19 @@
           var(--accent) 0%,
           var(--light) 100%
         );
+        position: relative;
+      }
+
+      .testimonials::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+        opacity: 0.1;
+        pointer-events: none;
       }
 
       .testimonial-card {
@@ -564,8 +1038,22 @@
       }
 
       /* Booking Section */
+      /* Booking Section */
       .booking {
         background: linear-gradient(135deg, #f9f7f4 0%, #ffffff 100%);
+        position: relative;
+      }
+
+      .booking::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://www.transparenttextures.com/patterns/subtle-white-feathers.png');
+        opacity: 0.12;
+        pointer-events: none;
       }
 
       .booking-container {
@@ -910,129 +1398,172 @@
       </div>
     </section>
 
+
+
     <!-- Services Section -->
-    <section id="services" class="services fade-in-section">
-      <div class="container">
-        <h2 class="section-title">Therapeutic Services</h2>
-        <p class="section-subtitle">
-          Tailored support for your unique healing journey
+<section id="services" class="services fade-in-section">
+  <div class="container">
+    <h2 class="section-title">Therapeutic Services</h2>
+    <p class="section-subtitle">Tailored support for your unique healing journey</p>
+
+    <!-- SERVICE 1 - Individual (image right) -->
+    <div class="service-band">
+      <div class="service-details">
+        <div class="service-head">
+          <span class="service-badge"><i class="fas fa-user"></i></span>
+          <h3>Individual Therapy</h3>
+        </div>
+
+        <p class="service-lead">
+          One-on-one sessions for anxiety, depression, trauma, and personal growth — tailored to your pace and needs.
         </p>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-user"></i>
-              </div>
-              <h4>Individual Therapy</h4>
-              <p>
-                One-on-one sessions tailored to your unique needs, addressing
-                anxiety, depression, trauma, and personal growth in a safe,
-                confidential space.
-              </p>
-              <ul>
-                <li><i class="fas fa-clock me-2"></i>50-60 minute sessions</li>
-                <li><i class="fas fa-video me-2"></i>Secure video sessions</li>
-                <li>
-                  <i class="fas fa-shield-alt me-2"></i>Fully confidential
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-heart"></i>
-              </div>
-              <h4>Couples Counseling</h4>
-              <p>
-                Strengthen your relationship through guided therapy. Build
-                better communication, resolve conflicts, and deepen your
-                connection.
-              </p>
-              <ul>
-                <li><i class="fas fa-clock me-2"></i>60-75 minute sessions</li>
-                <li><i class="fas fa-users me-2"></i>Both partners included</li>
-                <li>
-                  <i class="fas fa-handshake me-2"></i>Conflict resolution
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-home"></i>
-              </div>
-              <h4>Family Therapy</h4>
-              <p>
-                Heal family dynamics and improve communication for healthier
-                relationships and understanding across generations.
-              </p>
-              <ul>
-                <li><i class="fas fa-clock me-2"></i>75-90 minute sessions</li>
-                <li><i class="fas fa-users me-2"></i>All family members</li>
-                <li>
-                  <i class="fas fa-comments me-2"></i>Better communication
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-brain"></i>
-              </div>
-              <h4>Anxiety & Depression</h4>
-              <p>
-                Specialized treatment using evidence-based techniques including
-                CBT, mindfulness, and somatic practices.
-              </p>
-              <ul>
-                <li><i class="fas fa-leaf me-2"></i>Mindfulness techniques</li>
-                <li><i class="fas fa-lightbulb me-2"></i>CBT approach</li>
-                <li><i class="fas fa-chart-line me-2"></i>Progress tracking</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-spa"></i>
-              </div>
-              <h4>Trauma Healing</h4>
-              <p>
-                Compassionate, trauma-informed care to help you process and heal
-                from past experiences at your own pace.
-              </p>
-              <ul>
-                <li><i class="fas fa-shield me-2"></i>Trauma-informed</li>
-                <li><i class="fas fa-heart me-2"></i>Gentle approach</li>
-                <li><i class="fas fa-tree me-2"></i>Holistic healing</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-users"></i>
-              </div>
-              <h4>Group Therapy</h4>
-              <p>
-                Connect with others on similar journeys in supportive group
-                sessions that foster growth and understanding.
-              </p>
-              <ul>
-                <li><i class="fas fa-clock me-2"></i>90 minute sessions</li>
-                <li>
-                  <i class="fas fa-hand-holding-heart me-2"></i>Peer support
-                </li>
-                <li><i class="fas fa-calendar me-2"></i>Weekly meetings</li>
-              </ul>
-            </div>
-          </div>
+        <ul class="service-list">
+          <li>50–60 minute sessions</li>
+          <li>Secure video & in-person options</li>
+          <li>Confidential, trauma-informed care</li>
+        </ul>
+        <a class="service-cta" href="#booking">Begin Your Journey</a>
+      </div>
+      <div class="service-media">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop"
+             alt="One-on-one therapy session" />
+      </div>
+    </div>
+
+    <!-- SERVICE 2 - Couples (image left) - REPLACE THIS BLOCK -->
+    <div class="service-band reverse">
+      <div class="service-details">
+        <div class="service-head">
+          <span class="service-badge"><i class="fas fa-heart"></i></span>
+          <h3>Couples Counseling</h3>
+        </div>
+
+        <p class="service-lead">
+          Strengthen communication, resolve recurring conflicts, and rebuild trust with compassionate, evidence-based guidance.
+        </p>
+        <ul class="service-list">
+          <li>60–75 minute sessions</li>
+          <li>Both partners included</li>
+          <li>Relationship skills & empathy building</li>
+        </ul>
+        <!-- button hidden by CSS; you can remove the tag if you want -->
+        <a class="service-cta" href="#booking">Schedule for couples</a>
+      </div>
+      <div class="service-media">
+        <div class="img-wrap">
+          <img loading="lazy"
+              src="https://picsum.photos/id/1027/1400/900"
+              alt="Couple counseling session" />
         </div>
       </div>
-    </section>
+    </div>
+
+
+    <!-- SERVICE 3 - Family (image right) -->
+    <div class="service-band">
+      <div class="service-details">
+        <div class="service-head">
+          <span class="service-badge"><i class="fas fa-home"></i></span>
+          <h3>Family Therapy</h3>
+        </div>
+
+        <p class="service-lead">
+          Heal family dynamics and improve communication across generations — practical tools for long-term change.
+        </p>
+        <ul class="service-list">
+          <li>75–90 minute sessions</li>
+          <li>All family members welcome</li>
+          <li>Conflict resolution & boundary work</li>
+        </ul>
+        <a class="service-cta" href="#booking">Learn more</a>
+      </div>
+      <div class="service-media">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1400&auto=format&fit=crop"
+             alt="Family therapy session" />
+      </div>
+    </div>
+
+    <!-- SERVICE 4 - Anxiety & Depression (image left) -->
+    <div class="service-band reverse">
+      <div class="service-details">
+        <div class="service-head">
+          <span class="service-badge"><i class="fas fa-brain"></i></span>
+          <h3>Anxiety & Depression</h3>
+        </div>
+
+        <p class="service-lead">
+          Evidence-based strategies (CBT, mindfulness, somatic practices) to reduce symptoms and restore function.
+        </p>
+        <ul class="service-list">
+          <li>Mindfulness & grounding</li>
+          <li>CBT & behavior change</li>
+          <li>Trackable progress & goal setting</li>
+        </ul>
+        <a class="service-cta" href="#booking">Start therapy</a>
+      </div>
+      <div class="service-media">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?q=80&w=1400&auto=format&fit=crop"
+             alt="Mindfulness and therapy" />
+      </div>
+    </div>
+
+    <!-- SERVICE 5 - Trauma Healing (image right) -->
+    <div class="service-band">
+      <div class="service-details">
+        <div class="service-head">
+          <span class="service-badge"><i class="fas fa-shield-alt"></i></span>
+          <h3>Trauma Healing</h3>
+        </div>
+
+        <p class="service-lead">
+          Compassionate, trauma-informed approaches to safely process past experiences and reclaim daily life.
+        </p>
+        <ul class="service-list">
+          <li>EMDR-informed & somatic techniques</li>
+          <li>Slow, paced re-integration</li>
+          <li>Holistic support</li>
+        </ul>
+        <a class="service-cta" href="#booking">Request a consult</a>
+      </div>
+      <div class="service-media">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1400&auto=format&fit=crop"
+             alt="Trauma-informed therapy" />
+      </div>
+    </div>
+
+    <!-- SERVICE 6 - Group Therapy (image left) -->
+    <div class="service-band reverse">
+      <div class="service-details">
+        <div class="service-head">
+          <span class="service-badge"><i class="fas fa-users"></i></span>
+          <h3>Group Therapy</h3>
+        </div>
+
+        <p class="service-lead">
+          Supported peer groups for connection, practice, and sustainable change — small, facilitated groups.
+        </p>
+        <ul class="service-list">
+          <li>90 minute sessions</li>
+          <li>Peer support & skill practice</li>
+          <li>Weekly groups</li>
+        </ul>
+        <a class="service-cta" href="#booking">Join a group</a>
+      </div>
+      <div class="service-media">
+        <img loading="lazy"
+             src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=1400&auto=format&fit=crop"
+             alt="Group therapy circle" />
+      </div>
+    </div>
+  </div>
+</section>
+
+   
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials fade-in-section">
@@ -1249,6 +1780,63 @@
 
       window.addEventListener("scroll", handleScrollAnimations);
       window.addEventListener("load", handleScrollAnimations);
+      // Services reveal (intersection observer)
+(function () {
+  const bands = document.querySelectorAll('#services .service-band');
+  if (!bands.length) return;
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.14 });
+
+  bands.forEach(b => io.observe(b));
+})();
+
+// mouse parallax effect on images (desktop only)
+(function () {
+  const supportsHover = window.matchMedia('(hover: hover)').matches;
+  if (!supportsHover) return;
+  document.querySelectorAll('#services .service-media').forEach(media => {
+    const img = media.querySelector('img');
+    media.addEventListener('mousemove', (e) => {
+      const rect = media.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 .. 0.5
+      const py = (e.clientY - rect.top) / rect.height - 0.5;
+      // subtle translate & rotate
+      const tx = px * 8; // horizontal translate
+      const ty = py * 6; // vertical translate
+      const rY = px * 3; // rotateY
+      const rX = -py * 3; // rotateX
+      img.style.transform = `perspective(900px) rotateX(${rX}deg) rotateY(${rY}deg) translate3d(${tx}px, ${ty}px, 0) scale(1.06)`;
+    });
+    media.addEventListener('mouseleave', () => {
+      img.style.transform = '';
+    });
+  });
+})();
+
+// optional subtle page-scroll parallax for images
+(function () {
+  const mediaElems = document.querySelectorAll('#services .service-media img');
+  if (!mediaElems.length) return;
+  window.addEventListener('scroll', () => {
+    const vh = window.innerHeight;
+    mediaElems.forEach(img => {
+      const rect = img.getBoundingClientRect();
+      // when in viewport, adjust translateY for parallax
+      if (rect.top < vh && rect.bottom > 0) {
+        const pct = (rect.top / vh); // 0..1
+        const offset = (pct - 0.5) * 18; // reduce amplitude
+        img.style.transform = `translateY(${offset}px) scale(1.02)`;
+      }
+    });
+  }, { passive: true });
+})();
+
     </script>
   </body>
 </html>
